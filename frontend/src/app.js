@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+/*import React, { useEffect, useState } from 'react';
 
 function App() {
   const [data, setData] = useState({ message: "Loading..." });
@@ -19,4 +19,31 @@ function App() {
 }
 
 export default App;
+*/
+
+import React, { useEffect, useState } from 'react'; 
+
+function App() {
+const [data, setData] = useState({ message: "Loading..." }); 
+
+useEffect(() => {
+// Correct relative fetch path hitting the Express proxy / monolithic routing setup
+fetch('/api/message')
+.then((res) => {
+if (!res.ok) {
+throw new Error('Network response was not ok');
+}
+return res.json();
+})
+.then((data) => setData(data))
+.catch((err) => setData({ message: "Error connecting to backend." }));
+}, []); 
+
+return ( 
+
+);
+} 
+
+export default App;
+
 
