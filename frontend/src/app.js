@@ -39,9 +39,12 @@ return res.json();
 .catch((err) => setData({ message: "Error connecting to backend." }));
 }, []); 
 
-return ( 
-
-);
+return (
+    <div style={{ textAlign: 'center', marginTop: '50px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>Node.js + React Monolith Deployment</h1>
+      <p>Backend API response: <strong>{data.message}</strong></p>
+    </div>
+  );
 } 
 
 export default App;
